@@ -17,6 +17,11 @@
     // Override point for customization after application launch.
     return YES;
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+
+{ return YES; }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -25,6 +30,31 @@
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+
+    
+    if ((orientation == UIInterfaceOrientationLandscapeLeft) || (orientation == UIInterfaceOrientationLandscapeRight)) {
+        NSLog(@"Orientation: Landscape");
+    }
+    else{
+        NSLog(@"Orientation: Portrait");
+    }
+    
+    /*
+    if(([[UIApplication sharedApplication]statusBarOrientation] == UIInterfaceOrientationLandscapeLeft) || ([[UIApplication sharedApplication]statusBarOrientation] == UIInterfaceOrientationLandscapeRight)){        
+        //Landscape View
+    }
+    else{
+        //Portrait View
+    }
+     */
+
+    
+}
+
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
